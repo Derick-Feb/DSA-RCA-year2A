@@ -1,0 +1,40 @@
+# IDE / Editor configurations
+.idea/
+.vscode/
+.history/
+.windsurf/
+*.sublime-workspace
+*.sublime-project
+
+# Build / Binary files
+*.out
+*.exe
+*.class
+*.o
+*.obj
+*.dll
+*.so
+*.a
+*.lib
+*.pyc
+*.pyo
+*.dist
+*.jar
+*.war
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Logs and temp files
+*.log
+*.tmp
+*.swp
+
+# Node / Python / Java / C build folders (optional but useful)
+node_modules/
+dist/
+build/
+target/
+bin/
+out/

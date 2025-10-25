@@ -1,0 +1,49 @@
+1. 
+Inheritance is a mechanism in C++ that allows a class (derived class) to acquire the properties (data members) 
+ and behaviors (member functions) of another class (base class).
+
+Importance of OOP: 
+- Code Reusability: Avoids rewriting common code.
+- Polymorphism: Enables dynamic behavior and flexibility.
+- Hierarchy Modeling: Helps represent real-world relationships (e.g., Vehicle → Car, Bike).
+
+2. 
+Single inheritance: Derived class inherits from one base class.
+Multiple inheritance: Derived class inherits from more than one base class.
+Multilevel inheritance: A chain of inheritance (A → B → C).
+Hierarchical inheritance: Multiple derived classes inherit from the same base class.
+Hybrid inheritance: Combination of multiple types of inheritance.
+
+3.
+Public Inheritance: Public members of the base class stay public, protected members stay protected, 
+    and private members are inaccessible.
+
+Protected Inheritance: Public and protected members of the base class become protected in the derived class; 
+    private members remain inaccessible.
+
+Private Inheritance: Public and protected members of the base class become private in the derived class; 
+    private members remain inaccessible.
+
+4. 
+virtual is used in function declarations in the base class to enable runtime (dynamic) polymorphism.
+Ensures that the derived class version of a function is called when using a base class pointer/reference.
+
+5.
+A pure virtual function is a function with no implementation in the base class and is declared by = 0.
+
+6.
+Multiple inheritance: A class inherits from more than one base class.
+Ambiguity arises when two base classes have a member with the same name.
+
+7.
+Diamond problem: Occurs when a class inherits from two classes that both inherit from the same base class, causing ambiguity for 
+members of the grandparent class.
+Solution: Use virtual inheritance to ensure only one copy of the base class exists.
+
+8.
+Constructors: Base class constructors are called first, then derived class constructors.
+Destructors: Derived class destructors are called first, then base class destructors.
+
+9.
+Object slicing: Occurs when a derived class object is assigned to a base class object.
+The derived parts are “sliced off”, leaving only the base class portion.
