@@ -6,6 +6,11 @@
 *.sublime-workspace
 *.sublime-project
 
+# semi compiled files
+*.class
+*.pyc
+*.i
+
 # Build / Binary files
 *.out
 *.exe

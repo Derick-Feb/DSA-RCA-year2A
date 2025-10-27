@@ -17,9 +17,12 @@ create_new_file() {
   echo "📁 Using directory: $DIR_PATH"
   mkdir -p "$DIR_PATH"
 
-  read -p "📝 Enter new C++ file name (without .cpp): " FILE_NAME
+  read -p "📝 Enter new C++ file name (without .cpp, you can include subfolders like 'folder/file'): " FILE_NAME
 
   FILE_PATH="$DIR_PATH/${FILE_NAME}.cpp"
+
+  # Make sure parent directories exist
+  mkdir -p "$(dirname "$FILE_PATH")"
 
   if [ -f "$FILE_PATH" ]; then
     echo "⚠️ File already exists: $FILE_PATH"
