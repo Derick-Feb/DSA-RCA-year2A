@@ -19,7 +19,10 @@ create_new_file() {
 
   read -p "📝 Enter new C++ file name (without .cpp, you can include subfolders like 'folder/file'): " FILE_NAME
 
-  FILE_PATH="$DIR_PATH/${FILE_NAME}.cpp"
+  # Add .cpp automatically
+  [[ "$FILE_NAME" != *.cpp ]] && FILE_NAME="${FILE_NAME}.cpp"
+
+  FILE_PATH="$DIR_PATH/$FILE_NAME"
 
   # Make sure parent directories exist
   mkdir -p "$(dirname "$FILE_PATH")"
@@ -50,8 +53,20 @@ run_cpp_file() {
     SRC_FILE="$1"
 
     if [ -z "$SRC_FILE" ]; then
-      read -p "📂 Enter path to .cpp file (e.g., learn_25_10_25/main.cpp): " SRC_FILE
+      read -p "📂 Filename: " SRC_FILE
     fi
+
+    # If no folder path, prepend today's folder
+    if [[ "$SRC_FILE" != */* ]]; then
+      YEAR=$(date +%y)
+      MONTH=$(date +%m)
+      DAY=$(date +%d)
+      TODAY_DIR="$ROOT_DIR/learn_${YEAR}_${MONTH}_${DAY}"
+      SRC_FILE="$TODAY_DIR/$SRC_FILE"
+    fi
+
+    # Add .cpp automatically if missing
+    [[ "$SRC_FILE" != *.cpp ]] && SRC_FILE="${SRC_FILE}.cpp"
 
     if [ ! -f "$SRC_FILE" ]; then
       echo "❌ Error: File not found → $SRC_FILE"
@@ -61,18 +76,17 @@ run_cpp_file() {
 
     mkdir -p "$DIST_DIR"
 
-    # === Make unique binary name based on folder and file ===
-    REL_PATH="${SRC_FILE#$ROOT_DIR/}"          # Relative path from project root
-    BIN_NAME="${REL_PATH//\//_}"               # Replace / with _
-    BIN_NAME="${BIN_NAME%.cpp}"                # Remove .cpp extension
+    # Make unique binary name
+    REL_PATH="${SRC_FILE#$ROOT_DIR/}"
+    BIN_NAME="${REL_PATH//\//_}"
+    BIN_NAME="${BIN_NAME%.cpp}"
 
     echo "🔧 Compiling: $SRC_FILE"
     g++ "$SRC_FILE" -o "$DIST_DIR/$BIN_NAME" -std=c++17 -Wall
-
     echo "✅ Build complete → $DIST_DIR/$BIN_NAME"
 
-    # Clear terminal before running
-    clear
+    # clear the terminal for good output
+    # clear
     echo "🚀 Running: $DIST_DIR/$BIN_NAME"
     "$DIST_DIR/$BIN_NAME"
     break

@@ -22,7 +22,7 @@ vector<string> words = {
 
 string mutateWord(const string &word) {
     string mutated = word;
-    for (size_t i = 0; i < mutated.size(); i++) {
+    for (unsigned long long i = 0; i < mutated.size(); i++) {
         int randomInt = rand() % 100;
         if (randomInt % 2 == 0) {
             mutated[i] = '_';
