@@ -19,7 +19,7 @@ public:
         cout << "Shape of name: " << name << " with dimension: " << dim << endl;
     }
 
-    virtual ~Shape() {}
+    ~Shape() {}
 };
 
 class Triangle : public Shape {

@@ -1,0 +1,9 @@
+
+FUNCTION merge(arr, low, mid, high)
+    n1 <- mid-low+1
+    n2 <- high-mid
+
+    CREATE array L[0..n1]
+    CREATE array R[0..n2]
+
+END FUNCTION
