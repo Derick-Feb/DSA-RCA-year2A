@@ -47,6 +47,11 @@ public:
     }
 };
 
+class RightTriangle: public Triangle {
+public:
+    RightTriangle(double h, double b, double c): Triangle(h, b) {}
+};
+
 int main() {
     Triangle t(6, 8);
     t.setName("Tri1");
