@@ -23,7 +23,7 @@ int main() {
 
     cout << "\nOutput of rbegin and rend: ";
     for(auto i = g1.rbegin(); i != g1.rend(); i++){
-        cout << *ir << " ";
+        cout << *i << " ";
     }
 
 
