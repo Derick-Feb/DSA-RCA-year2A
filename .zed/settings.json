@@ -1,0 +1,7 @@
+{
+  "lsp": {
+    "clangd": {
+      "includePath": ["D:/msys64/ucrt64/include/c++/15.2.0"],
+    },
+  },
+}
