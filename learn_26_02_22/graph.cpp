@@ -18,7 +18,12 @@ public:
         }
     }
 
-    ~AdjacencyMatrix() {}
+    ~AdjacencyMatrix() {
+        for(int i = n; i < n; i++)
+            delete[] matrix[i];
+
+        delete[] matrix;
+    }
 };
 
 int main() {
